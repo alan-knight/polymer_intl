@@ -12,8 +12,6 @@ main entry point is polymer_intl.html
 
 * `pubspec.yaml`: the Pub dependencies for this application.
 
-* `build.dart`: creates the deployed Polymer application.
-
 * `web/polymer_intl.html`: the main application file. This imports and
 uses the `<localized-example>` custom element.
 
