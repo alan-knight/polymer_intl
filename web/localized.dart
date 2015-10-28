@@ -1,15 +1,18 @@
-// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+@HtmlImport('localized.html')
+
 import 'package:polymer/polymer.dart';
+import 'package:web_components/web_components.dart' show HtmlImport;
 import 'package:intl/intl.dart';
 import 'messages_all.dart';
 
 /// This is an example polymer component that displays a message in one of
 /// a couple of different locales, based on the user's drop-down list
 /// selection.
-@CustomTag('localized-example')
+@PolymerRegister('localized-example')
 class LocalizedExampleElement extends PolymerElement {
 
   // Polymer likes to use observable variables and doesn't really like
@@ -17,8 +20,8 @@ class LocalizedExampleElement extends PolymerElement {
   // values that the getter depends on change. So we will save the result
   // of the message function in an observable variable. That will get
   // a bit trickier if we have messages that have parameters.
-  @observable String selectedLocale;
-  @observable String helloWorld;
+  @Property(observer: 'selectedLocaleChanged') String selectedLocale;
+  @property String helloWorld;
 
   // It would be simpler to set [helloWorld] in an initializer, but we can't
   // put a method call in an initializer, so do it in the constructor.
@@ -28,7 +31,8 @@ class LocalizedExampleElement extends PolymerElement {
 
   // Polymer should call this method automatically if the value of
   // [selectedLocale] changes.
-  void selectedLocaleChanged() {
+  @reflectable
+  void selectedLocaleChanged([_, __]) {
     // We didn't provide en_US translations. We expect it to use the default
     // text in the messages for en_US. But then we have to not try and
     // initialize messages for the en_US locale. dartbug.com/15444
@@ -48,7 +52,7 @@ class LocalizedExampleElement extends PolymerElement {
   // observe the default locale and update accordingly.
   void updateLocale(localeName) {
     Intl.defaultLocale = selectedLocale;
-    helloWorld = helloFromDart();
+    set("helloWorld", helloFromDart());
   }
 
   // This is our message, a function that would take parameters if we have any

@@ -4,10 +4,14 @@ environment:
   sdk: '>=1.0.0 <2.0.0'
 dependencies:
   intl: '>=0.9.0 <0.13.0'
-  polymer: '>=0.16.0 <1.1.0'
-  test: any
+  polymer: ^1.0.0-rc.3
+  web_components: ^0.12.0
+  reflectable: ^0.3.0
+  analyzer: '<0.26.1+16'
 transformers:
-- polymer:
-    entry_points: web/polymer_intl.html
-- test/pub_serve:
-    $include: test/**_test.dart
+- web_components:
+    entry_points:
+    - web/polymer_intl.html
+- reflectable:
+    entry_points:
+    - web/polymer_intl.dart
