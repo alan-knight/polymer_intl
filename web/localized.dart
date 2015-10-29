@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 @HtmlImport('localized.html')
+library localized;
 
 import 'package:polymer/polymer.dart';
 import 'package:web_components/web_components.dart' show HtmlImport;
