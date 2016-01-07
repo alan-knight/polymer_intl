@@ -5,13 +5,9 @@ environment:
   sdk: '>=1.0.0 <2.0.0'
 dependencies:
   intl: '>=0.9.0 <0.13.0'
-  polymer: ^1.0.0-rc.3
+  polymer: ^1.0.0-rc.11
   web_components: ^0.12.0
-  reflectable: ^0.3.0
 transformers:
-- web_components:
+- polymer:
     entry_points:
     - web/polymer_intl.html
-- reflectable:
-    entry_points:
-    - web/polymer_intl.dart
