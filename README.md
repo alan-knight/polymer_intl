@@ -20,8 +20,12 @@ uses the `<localized-example>` custom element.
 * `web/localized.html`, `web/localized.dart`: Defines the 
 `<localized-example>` custom element.
 
-* `intl_messages.json`, `translation_fr.json`, and `translation_pt.json`:
+* `intl_messages.arb`, `translation_fr.arb`, and `translation_pt.arb`:
 Data files used in the translation process.
 
 * `messages_all.dart`, `messages_fr.dart`, and `messages_pt.dart`:
-Generated code defining Dart libraries with the translated messages.
+Generated code defining Dart libraries with the translated
+messages. To regenerate these, from the web directory, run
+```
+pub global run intl:generate_from_arb localized.dart translation_*.arb
+```
