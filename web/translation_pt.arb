@@ -1,0 +1,18 @@
+{
+  "helloFromDart": "Olá Mundo de Dart!",
+  "@helloFromDart": {
+    "description": "This is just a simple Hello World message that doesn't take any parameters.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "timeMessage": "A hora é agora: {theTime}",
+  "@timeMessage": {
+    "description": "Say the time and date",
+    "type": "text",
+    "placeholders": {
+      "theTime": {
+        "example": "Thu, 5/23/2013 10:21:47 AM"
+      }
+    }
+  }
+}
